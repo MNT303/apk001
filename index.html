@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perpustakaan Digital - Mockup Lengkap</title>
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* Layout Components */
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* Header */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #3498db;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background-color: #34495e;
+            color: white;
+            padding: 1.5rem 0;
+            transition: all 0.3s;
+        }
+        
+        .nav-menu {
+            list-style: none;
+        }
+        
+        .nav-item {
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .nav-item:hover {
+            background-color: #2c3e50;
+        }
+        
+        .nav-item.active {
+            background-color: #2980b9;
+        }
+        
+        .nav-icon {
+            width: 20px;
+            text-align: center;
+        }
+        
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+        }
+        
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .page-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+        }
+        
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .card-title {
+            font-size: 1.2rem;
+            color: #2c3e50;
+        }
+        
+        /* Buttons */
+        .btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .btn-primary {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+        }
+        
+        .btn-success {
+            background-color: #2ecc71;
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background-color: #27ae60;
+        }
+        
+        .btn-danger {
+            background-color: #e74c3c;
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background-color: #c0392b;
+        }
+        
+        .btn-sm {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Forms */
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .form-col {
+            flex: 1;
+        }
+        
+        /* Tables */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .table th, .table td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .table tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        /* Stats Cards */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin: 0.5rem 0;
+        }
+        
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        /* Book Cards */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .book-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .book-cover {
+            height: 180px;
+            background-color: #ecf0f1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #7f8c8d;
+        }
+        
+        .book-info {
+            padding: 1rem;
+        }
+        
+        .book-title {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: #2c3e50;
+        }
+        
+        .book-author {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .book-status {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .status-available {
+            background-color: #d5f5e3;
+            color: #27ae60;
+        }
+        
+        .status-unavailable {
+            background-color: #fadbd8;
+            color: #e74c3c;
+        }
+        
+        /* Utility Classes */
+        .text-muted {
+            color: #7f8c8d;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .mb-3 {
+            margin-bottom: 1rem;
+        }
+        
+        .mt-3 {
+            margin-top: 1rem;
+        }
+        
+        .d-flex {
+            display: flex;
+        }
+        
+        .justify-between {
+            justify-content: space-between;
+        }
+        
+        .align-center {
+            align-items: center;
+        }
+        
+        /* Auth Pages */
+        .auth-container {
+            max-width: 400px;
+            margin: 5rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        .auth-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+        
+        .auth-footer {
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .auth-tab {
+            flex: 1;
+            text-align: center;
+            padding: 0.8rem;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .auth-tab.active {
+            border-bottom-color: #3498db;
+            font-weight: 500;
+        }
+        
+        /* Report Filters */
+        .report-filters {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                padding: 1rem;
+            }
+            
+            .nav-menu {
+                display: flex;
+                overflow-x: auto;
+            }
+            
+            .nav-item {
+                white-space: nowrap;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Halaman Auth -->
+    <div id="auth-page" style="display: block;">
+        <div class="auth-container">
+            <h1 class="auth-title">PERPUSTAKAAN DIGITAL</h1>
+<!-- Login Form -->
+<div id="login-form">
+    <form>
+        <div class="auth-tab active" data-tab="login"></div>
+        <div class="form-group">
+            <label class="form-label">Username</label>
+            <input type="text" class="form-control" placeholder="Masukkan username">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" placeholder="Masukkan password">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Masuk</button>
+    </form>
+    <div class="auth-footer">
+        <p>Belum punya akun? <a href="#" class="switch-tab" data-tab="register">Daftar disini</a></p>
+        <p><a href="#" class="switch-tab" data-tab="forgot">Lupa password?</a></p>
+    </div>
+</div>
+
+<!-- Register Form -->
+<div id="register-form" style="display: none;">
+    <form>
+        <div class="auth-tab" data-tab="register"></div>
+        <div class="form-group">
+            <label class="form-label">Nama Lengkap</label>
+            <input type="text" class="form-control" placeholder="Masukkan nama lengkap">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" placeholder="Masukkan email">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Username</label>
+            <input type="text" class="form-control" placeholder="Masukkan username">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" placeholder="Masukkan password">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Konfirmasi Password</label>
+            <input type="password" class="form-control" placeholder="Masukkan password lagi">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Daftar</button>
+    </form>
+    <div class="auth-footer">
+        <p>Sudah punya akun? <a href="#" class="switch-tab" data-tab="login">Masuk disini</a></p>
+    </div>
+</div>
+
+<!-- Forgot Password Form -->
+<div id="forgot-form" style="display: none;">
+    <form>
+        <div class="auth-tab" data-tab="forgot"></div>
+        <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" placeholder="Masukkan email terdaftar">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Reset Password</button>
+    </form>
+    <div class="auth-footer">
+        <p>Ingat password? <a href="#" class="switch-tab" data-tab="login">Masuk disini</a></p>
+    </div>
+</div>
+</div>
+</div>
+
+    <!-- Halaman Aplikasi (disembunyikan awalnya) -->
+    <div id="app-container" style="display: none;">
+        <header>
+            <div class="logo">PERPUSTAKAAN DIGITAL</div>
+            <div class="user-info">
+                <span>User</span>
+                <div class="user-avatar">A</div>
+            </div>
+        </header>
+        
+        <div class="container">
+            <aside class="sidebar">
+                <ul class="nav-menu">
+                    <li class="nav-item active" data-page="dashboard">
+                        <span class="nav-icon">📊</span>
+                        <span>Dashboard User</span>
+                    </li>
+                    <li class="nav-item" data-page="loan-form">
+                        <span class="nav-icon">📝</span>
+                        <span>Peminjaman Buku</span>
+                    </li>
+                    <li class="nav-item" data-page="book-management">
+                        <span class="nav-icon">📚</span>
+                        <span>Manajemen Buku</span>
+                    </li>
+                    <li class="nav-item" data-page="settings">
+                        <span class="nav-icon">⚙️</span>
+                        <span>Pengaturan</span>
+                    </li>
+                </ul>
+            </aside>
+            
+            <main class="main-content">
+                <!-- Dashboard Page -->
+                <div id="dashboard-page" class="page-content">
+                    <div class="page-header">
+                        <h1 class="page-title">Dashboard User</h1>
+                        <div>
+                            <button class="btn btn-primary">+ Tambah Peminjaman</button>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-container">
+                        <div class="stat-card">
+                            <p class="stat-label">Total Buku</p>
+                            <p class="stat-value">1,245</p>
+                        </div>
+                        <div class="stat-card">
+                            <p class="stat-label">Buku Dipinjam</p>
+                            <p class="stat-value">87</p>
+                        </div>
+                        <div class="stat-card">
+                            <p class="stat-label">Pengembalian Hari Ini</p>
+                            <p class="stat-value">12</p>
+                        </div>
+                        <div class="stat-card">
+                            <p class="stat-label">Keterlambatan</p>
+                            <p class="stat-value">5</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Peminjaman Aktif</h2>
+                            <a href="#">Lihat Semua</a>
+                        </div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Judul Buku</th>
+                                    <th>Peminjam</th>
+                                    <th>Tanggal Pinjam</th>
+                                    <th>Tanggal Kembali</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#0012</td>
+                                    <td>Pemrograman Web Modern</td>
+                                    <td>Andi Setiawan</td>
+                                    <td>12 Apr 2023</td>
+                                    <td>19 Apr 2023</td>
+                                    <td><button class="btn btn-success btn-sm">Kembalikan</button></td>
+                                </tr>
+                                <tr>
+                                    <td>#0011</td>
+                                    <td>Desain UI/UX</td>
+                                    <td>Budi Santoso</td>
+                                    <td>10 Apr 2023</td>
+                                    <td>17 Apr 2023</td>
+                                    <td><button class="btn btn-success btn-sm">Kembalikan</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Buku Populer</h2>
+                            <a href="#">Lihat Semua</a>
+                        </div>
+                        <div class="books-grid">
+                            <div class="book-card">
+                                <div class="book-cover">Cover Buku</div>
+                                <div class="book-info">
+                                    <h3 class="book-title">Pemrograman JavaScript</h3>
+                                    <p class="book-author">John Doe</p>
+                                    <span class="book-status status-available">Tersedia</span>
+                                </div>
+                            </div>
+                            <div class="book-card">
+                                <div class="book-cover">Cover Buku</div>
+                                <div class="book-info">
+                                    <h3 class="book-title">Belajar Python</h3>
+                                    <p class="book-author">Jane Smith</p>
+                                    <span class="book-status status-unavailable">Dipinjam</span>
+                                </div>
+                            </div>
+                            <div class="book-card">
+                                <div class="book-cover">Cover Buku</div>
+                                <div class="book-info">
+                                    <h3 class="book-title">Algoritma Dasar</h3>
+                                    <p class="book-author">Robert Johnson</p>
+                                    <span class="book-status status-available">Tersedia</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Loan Form Page -->
+                <div id="loan-form-page" class="page-content" style="display: none;">
+                    <div class="page-header">
+                        <h1 class="page-title">Form Peminjaman Buku</h1>
+                    </div>
+                    
+                    <div class="card">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <label class="form-label">Nomor Anggota</label>
+                                        <input type="text" class="form-control" placeholder="Masukkan nomor anggota">
+                                    </div>
+                                </div>
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <label class="form-label">Nama Anggota</label>
+                                        <input type="text" class="form-control" placeholder="Nama akan muncul otomatis" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Pencarian Buku</label>
+                                <input type="text" class="form-control" placeholder="Cari berdasarkan judul, penulis, atau ISBN">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Buku yang Dipinjam</label>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Judul Buku</th>
+                                            <th>Pengarang</th>
+                                            <th>Tahun</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Pemrograman Web Modern</td>
+                                            <td>John Doe</td>
+                                            <td>2022</td>
+                                            <td><button class="btn btn-danger btn-sm">Hapus</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <button class="btn btn-primary">+ Tambah Buku</button>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <label class="form-label">Tanggal Pinjam</label>
+                                        <input type="date" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <label class="form-label">Tanggal Kembali</label>
+                                        <input type="date" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex justify-between">
+                                <button class="btn btn-danger">Batal</button>
+                                <button class="btn btn-success">Simpan Peminjaman</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Other Pages Placeholder -->
+                <div id="book-management-page" class="page-content" style="display: none;">
+                    <div class="page-header">
+                        <h1 class="page-title">Manajemen Buku</h1>
+                        <div>
+                            <button class="btn btn-primary">+ Tambah Buku</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <p class="text-center text-muted">Halaman manajemen buku</p>
+                    </div>
+                </div>
+                
+                <div id="member-management-page" class="page-content" style="display: none;">
+                    <div class="page-header">
+                        <h1 class="page-title">Manajemen Anggota</h1>
+                        <div>
+                            <button class="btn btn-primary">+ Tambah Anggota</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <p class="text-center text-muted">Halaman manajemen anggota</p>
+                    </div>
+                </div>
+                
+                <div id="settings-page" class="page-content" style="display: none;">
+                    <div class="page-header">
+                        <h1 class="page-title">Pengaturan Sistem</h1>
+                    </div>
+                    <div class="card">
+                        <p class="text-center text-muted">Halaman pengaturan sistem</p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Auth Tabs
+        document.querySelectorAll('.auth-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Update tabs
+                document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Show corresponding form
+                document.querySelectorAll('#login-form, #register-form, #forgot-form').forEach(form => {
+                    form.style.display = 'none';
+                });
+                document.getElementById(this.dataset.tab + '-form').style.display = 'block';
+            });
+        });
+        
+        // Switch between auth forms
+        document.querySelectorAll('.switch-tab').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(`.auth-tab[data-tab="${this.dataset.tab}"]`).click();
+            });
+        });
+        
+        // Login form submission
+        document.querySelector('#login-form form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('auth-page').style.display = 'none';
+            document.getElementById('app-container').style.display = 'block';
+        });
+        
+        // Navigation menu
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // Update active menu
+                document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Show corresponding page
+                document.querySelectorAll('.page-content').forEach(page => {
+                    page.style.display = 'none';
+                });
+                document.getElementById(this.dataset.page + '-page').style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>
